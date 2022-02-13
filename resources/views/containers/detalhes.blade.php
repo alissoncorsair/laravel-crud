@@ -1,15 +1,3 @@
-{{--@foreach($containerMovements as $movement)--}}
-
-{{--    <h1>{{$movement->container_id}}</h1>--}}
-{{--    <h1>{{$movement->tipo}}</h1>--}}
-{{--    <h1>{{$movement->entrada}}</h1>--}}
-{{--    <h1>{{$movement->saida}}</h1>--}}
-
-{{--@endforeach--}}
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,37 +21,29 @@
                     <div class="col-sm-6">
                         <h2>Detalhes do cliente <b>{{$container->cliente}}</b>.</h2>
                         <h2>Container: {{$container->numero_container}}.</h2>
-                        <p>Tipo: {{$container->tipo_container}}, Status: {{$container->status_container}}, Categoria: {{$container->categoria_container}}</p>
+                        <p>Tipo: {{$container->tipo_container}}, Status: {{$container->status_container}},
+                            Categoria: {{$container->categoria_container}}</p>
                     </div>
                 </div>
             </div>
+            <a href="{{ route('index') }}"><h1>Voltar</h1></a>
+
             <table class="table table-striped table-hover">
                 <thead>
                 <tr>
-{{--                    <th>N°</th>--}}
-{{--                    <th>Cliente</th>--}}
-{{--                    <th>Número do contêiner</th>--}}
-{{--                    <th>Tipo</th>--}}
-{{--                    <th>Status</th>--}}
-{{--                    <th>Categoria</th>--}}
-{{--                    <th>Movimentos realizados</th>--}}
                     <th>Tipo de movimento</th>
                     <th>Início</th>
                     <th>Fim</th>
                     <th></th>
                     <th>Ações</th>
                 </tr>
-                @php
-                    $contador = 0;
-                @endphp
+                @php($contador = 0)
                 @foreach($containerMovements as $movement)
                     <tr>
                         <td>{{ $movement->tipo }}</td>
                         <td>{{ \Carbon\Carbon::parse($movement->entrada)->format('d/m/Y H:m:s')}}</td>
                         <td>{{ \Carbon\Carbon::parse($movement->saida)->format('d/m/Y H:m:s')}}</td>
                         <td></td>
-{{--                        <td style="text-align:center">{{$container->qtd_movimentos >= 1 ? $container->qtd_movimentos : 0}}</td>--}}
-{{--                        <td class="">--}}
                         <td>
                             <a href="{{ route('editmove', [$container->id, $movement->id]) }}">
                                 <button
@@ -81,25 +61,12 @@
                                 </button>
                             </form>
                         </td>
-{{--                            <a href="{{route('createmove', $container->id)}}"><button--}}
-{{--                                    class="h-8 px-1 m-2 bg-green-400 hover:bg-green-800 text-white font-bold border border-blue-700 rounded">--}}
-{{--                                    Mover--}}
-{{--                                </button></a>--}}
-
-{{--                        </td>--}}
-                        @php
-                            $contador++;
-                        @endphp
+                        @php($contador++)
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-                <h1><b>Quantidade de movimentos: {{$contador}}</b></h1>
-                <a href="{{ route('index') }}"><h1>Voltar</h1></a>
-{{--            <div class="col-sm-6">--}}
-{{--                <a href={{route('create')}} class="btn btn-success" data-toggle="modal"><span>Adicionar--}}
-{{--                            Container</span></a>--}}
-{{--            </div>--}}
+            <h1><b>Quantidade de movimentos: {{$contador}}</b></h1>
         </div>
     </div>
 </div>
