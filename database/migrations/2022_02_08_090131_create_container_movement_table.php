@@ -15,11 +15,10 @@ class CreateContainerMovementTable extends Migration
     {
         Schema::create('container_movement', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('container_id')->constrained('containers'); /* por padrao ele ja procura um campo "id" */
+            $table->foreignId('container_id')->constrained('containers', 'id')->onDelete('cascade');
             $table->string('tipo');
             $table->dateTime('entrada');
             $table->dateTime('saida');
-            $table->timestamps();
         });
     }
 

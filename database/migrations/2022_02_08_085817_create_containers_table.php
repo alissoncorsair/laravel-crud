@@ -15,12 +15,12 @@ class CreateContainersTable extends Migration
     {
         Schema::create('containers', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('cliente');
             $table->string('numero_container');
             $table->string('tipo_container');
             $table->string('status_container');
             $table->string('categoria_container');
+            $table->integer('qtd_movimentos')->nullable();
         });
     }
 
