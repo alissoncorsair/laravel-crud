@@ -20,7 +20,6 @@ class ContainersMovementController extends Controller
 
     public function store(Request $request, $id)
     {
-        $id = $request->id;
         ContainerMovement::create([
             'container_id' => $id,
             'tipo' => $request->tipo,

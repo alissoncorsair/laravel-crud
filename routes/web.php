@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/containers', 'App\Http\Controllers\ContainersController@index')->name('index');
+
 Route::get('/containers/create', 'App\Http\Controllers\ContainersController@create')->name('create');
 Route::post('/containers', 'App\Http\Controllers\ContainersController@store')->name('store');
 Route::delete('/containers/{id}', 'App\Http\Controllers\ContainersController@destroy')->name('destroy');
+
 Route::get('/containers/{id}/edit', 'App\Http\Controllers\ContainersController@edit')->name('edit');
 Route::put('/containers/{id}', 'App\Http\Controllers\ContainersController@update')->name('update');
 
