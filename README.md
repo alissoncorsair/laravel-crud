@@ -2,7 +2,7 @@
 
 <ul>
 <li>Clonar o projeto: git clone https://github.com/alissoncorsair/laravel-crud.git</li>
-<li>Ir para o diretório da pasta: cd laravel-crud</li>
+<li>Ir para o diretório do projeto: cd laravel-crud</li>
 <li>Instalar as libs e dependências: composer install</li>
 <li>Copiar o .env.example: copy .env.example .env</li>
 <li>Abrir o arquivo .env e mudar o nome do banco de dados (DB_DATABASE), o usuário (DB_USERNAME) e senha (DB_PASSWORD) correspondentes às suas configurações.</li>
